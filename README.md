@@ -14,7 +14,7 @@ for correct message processing, it needs external IP devices from which this tra
 ```commandline
 gcloud container clusters get-credentials <CLUSTER-NAME> --region <REGION> --project <PROJECT-NAME>
 ```
-2. Use `kubectl apply -f demo-deploy.yaml && kubectl apply -f demo-service.yaml` for rollout
+2. Use `kubectl apply -f demo-deploy.yaml && kubectl apply -f demo-service.yaml` for rollout application
 3. To check LB rule follow to the link https://console.cloud.google.com/net-services/loadbalancing/list/loadBalancers
 ![Summary](picture/LB-passthrough-total.png "Summary")
 ![Frontend](picture/LB-frontend.png "Frontend")
@@ -25,7 +25,7 @@ kubectl get svc -n log-namespace
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)          AGE
 log-parser   LoadBalancer   10.27.218.204   35.196.30.64   5514:30060/TCP   11m
 ```
-5. To check external port available using telnet utility  
+5. To check external port workability using telnet utility  
 ```
 telnet 35.196.30.64 5514
 Trying 35.196.30.64...
