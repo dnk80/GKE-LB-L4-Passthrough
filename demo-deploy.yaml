@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: log-parser
-        image: us-docker.pkg.dev/cloudrun/container/hello:latest # For test using hello image for Cloudrun
+        image: us-docker.pkg.dev/cloudrun/container/hello:latest # For test case lets using hello image for Cloudrun
         ports:
         - name: http
           containerPort: 8080
