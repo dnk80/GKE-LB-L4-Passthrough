@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: log-namespace
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-parser
+  namespace: log-namespace
+spec:
+  selector:
+    matchLabels:
+      app: log-parser
+  template:
+    metadata:
+      labels:
+        app: log-parser
+    spec:
+      containers:
+      - name: log-parser
+        image: us-docker.pkg.dev/cloudrun/container/hello:latest # For test using hello image for Cloudrun
+        ports:
+        - name: http
+          containerPort: 8080

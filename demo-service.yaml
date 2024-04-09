@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: log-parser
+  namespace: log-namespace
+  annotations:
+    cloud.google.com/load-balancer-type: "External"
+    cloud.google.com/l4-rbs: "enabled" # This annotation instructs GKE to create a backend service-based external passthrough Network Load Balancer that uses a regional backend service.
+    cloud.google.com/backend-config: '{"default": "log-parser-backend"}' # Create Backend
+spec:
+  type: LoadBalancer
+  selector:
+    app: log-parser
+  ports:
+    - name: tcp-logs
+      protocol: TCP
+      port: 5514
+      targetPort: 8080
+      nodePort: 30060 # Optional, define exactly nodeport number
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: 'log-parser-backend'
+  namespace: log-namespace
+spec:
+  securityPolicy:
+    name: log-parser-firewall-acl
