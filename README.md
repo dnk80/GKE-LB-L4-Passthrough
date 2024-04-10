@@ -19,7 +19,7 @@ gcloud container clusters get-credentials <CLUSTER-NAME> --region <REGION> --pro
 ![Summary](picture/LB-passthrough-total.png "Summary")
 ![Frontend](picture/LB-frontend.png "Frontend")
 ![Backend](picture/LB-backend.png "Backend")
-4. To check service and External IP enter command
+4. To check service External IP and port enter command
 ```
 kubectl get svc -n log-namespace
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)          AGE
