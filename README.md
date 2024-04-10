@@ -2,7 +2,7 @@
 
 I recently spent some time building an Load Balancer l4 pass-through. It took more time than I expected, so I decided to share the implementation. 
 Searching for information on this topic yielded a couple of articles (which seem to be copied from each other) where the author suggests linking a cluster IP with an LB. 
-Yeah, as if it was that simple, but it's already working. The official Google guide describes everything beautifully with pictures but doesn't provide a single example, 
+Yeah, it would be so simple, but it doesn't work. The official Google guide describes everything beautifully with pictures but doesn't provide a single example, 
 only theory (https://cloud.google.com/load-balancing/docs/passthrough-network-load-balancer).
 ![passthrough-network-load-balancer](picture/passthrough-network-load-balancer.svg "Passthrough Network Load Balancer")
 
